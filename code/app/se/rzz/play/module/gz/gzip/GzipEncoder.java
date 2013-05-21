@@ -49,7 +49,7 @@ public class GzipEncoder extends Action<Gzip> {
             ctx.response().setContentType("text/html;charset=UTF-8");
         }
 
-        ctx.response().setHeader("Content-Encoding", "se/rzz/play/module/gz/gzip");
+        ctx.response().setHeader("Content-Encoding", "gzip");
         ctx.response().setHeader("Content-Length", Integer.toString(body.length));
 
         return status(statusCode, body);

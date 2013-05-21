@@ -1,9 +1,7 @@
 #play-gzip
-
-
 This is a simple plugin that helps with gzip-ing outgoing data from your play application.
-##Versions
-`1.1.1` `1.1.0`
+
+
 
 ##Importing plugin
 
@@ -63,11 +61,11 @@ For more fine grained controll one can simply call for gziping the result before
     }
 
 
-Note: If `Content-Type` in response is not set play-gzip will assume that it is `text/html;charset=UTF-8`
+* Note: If `Content-Type` in response is not set play-gzip will assume that it is `text/html;charset=UTF-8`
 
-Note: play-gzip never returns gziped content unless the request `Accept-Encoding` contains `gzip`
+* Note: play-gzip never returns gziped content unless the request `Accept-Encoding` contains `gzip`
 
-Note: play-gzip will set `Content-Encoding` to gzip for result
+* Note: play-gzip will set `Content-Encoding` to gzip for result
 
 
 ###GzipAsstes Controller
@@ -101,25 +99,27 @@ the original asset.
                     "/public/js/libs/jquery.min.js"
                  ]
     
-Note: GzipAssets only work in production since it relays on Asstes to send the compressed files and Assets only does so
+* Note: GzipAssets only work in production since it relays on Asstes to send the compressed files and Assets only does so
 in production mode
 
-Note: Config only relate to GzipAssets
+* Note: Config only relate to GzipAssets
 
-Note: Config is optional and without it GzipAssets will conpress all files regardless of size or location.
+* Note: Config is optional and without it GzipAssets will conpress all files regardless of size or location.
 
-Note: Only files with the file size within the intervall gzip.min.file.size to gzip.max.file.size will be compressed
+* Note: Only files with the file size within the intervall gzip.min.file.size to gzip.max.file.size will be compressed
 
-Note: gzip.exclude contain list with relativ path to assets not to be compressed, both specific files or dirs are valid
+* Note: gzip.exclude contain list with relativ path to assets not to be compressed, both specific files or dirs are valid
 
-Note: GzipAssets compresses assets in a seperate thread and are initiated by the request for a asset. 
+* Note: GzipAssets compresses assets in a seperate thread and are initiated by the request for a asset. 
 Hence the first request for an asset might deliver a uncompressed version. 
 
-Note: GzipAssets also "detect" changes to the uncompressed asset and re-compress it. 
+* Note: GzipAssets also "detect" changes to the uncompressed asset and re-compress it. 
 It might however deliver the old version on the first request for the asset
 
 
 
+##Versions
+`1.1.2`
 
 
 

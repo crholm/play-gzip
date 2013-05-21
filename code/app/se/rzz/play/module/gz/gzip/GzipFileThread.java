@@ -25,8 +25,6 @@ public class GzipFileThread implements Runnable {
     }
 
     private GzipFileThread() {
-        new Thread(this).start();
-
 
         try{
             List<String> excludesList = Play.application().configuration().getStringList("gzip.exclude");
@@ -37,6 +35,8 @@ public class GzipFileThread implements Runnable {
 
 
         }catch (NullPointerException e){}
+
+        new Thread(this).start();
 
 
 

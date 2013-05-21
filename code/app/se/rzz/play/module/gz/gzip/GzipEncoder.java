@@ -21,20 +21,33 @@ public class GzipEncoder extends Action<Gzip> {
 
         String encoding = ctx.request().getHeader("Accept-Encoding");
 
-        if(encoding == null || !encoding.contains("se/rzz/play/module/gz/gzip")){
+        if(encoding == null || !encoding.contains("gzip")){
 
             return delegate.call(ctx);
         }
 
         Result result = delegate.call(ctx);
 
-        return encode(result, ctx);
+        return encodeGzip(result, ctx);
 
 
     }
 
-
     public final static Result encode(Result result, Http.Context ctx){
+        String encoding = ctx.request().getHeader("Accept-Encoding");
+
+        if(encoding == null || !encoding.contains("gzip")){
+            return result;
+        }
+
+        return encodeGzip(result, ctx);
+
+    }
+
+
+
+    private final static Result encodeGzip(Result result, Http.Context ctx){
+
         final int statusCode = JavaResultExtractor.getStatus(result);
         byte[] body = JavaResultExtractor.getBody(result);
 

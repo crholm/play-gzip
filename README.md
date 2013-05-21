@@ -11,12 +11,12 @@ This is a simple plugin that helps with gzip-ing outgoing data from your play ap
   	
   	object ApplicationBuild extends Build {
   	
-  	    val appName         = "authtut"
+  	    val appName         = "YourAppName"
   	    val appVersion      = "1.0-SNAPSHOT"
   	
   	    val appDependencies = Seq(
   	      // Add your project dependencies here,
-  	      "se.rzz" %% "play-gzip" % "1.1.2"
+  	      "se.rzz" %% "play-gzip" % "1.2"
   	    )
   	
   	    val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
@@ -119,7 +119,7 @@ It might however deliver the old version on the first request for the asset
 
 
 ##Versions
-`1.1.2`
+`1.2`
 
 
 
